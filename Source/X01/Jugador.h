@@ -11,6 +11,21 @@ class X01_API AJugador : public ACharacter
 {
 	GENERATED_BODY()
 
+	//Componentes
+	UPROPERTY(EditAnywhere)
+	class USpotLightComponent * myLight;
+	UPROPERTY(EditAnywhere)
+	class UCameraComponent * myCamera;
+
+	void moveHorizontal(float a);
+	void moveVertical(float a);
+	void toggleLight();
+
+	bool isLightOn() const;
+
+	
+
+
 public:
 	// Sets default values for this character's properties
 	AJugador();
@@ -25,5 +40,7 @@ public:
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	void SetAction();
 
 };
