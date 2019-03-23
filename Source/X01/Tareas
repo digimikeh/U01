@@ -1,0 +1,5 @@
+Continuar con interruptor
+
+L.25 Interruptor.h
+    Si yo coloco USpotLightComponent no me deja colocar el objeto del mapa en el panel Details, no es como en unity, 
+    hay que investigar que se debe colocar, la idea es que pueda arrastrar el objeto de luz de punto de World Outliner a Details panel.

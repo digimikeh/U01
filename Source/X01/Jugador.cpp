@@ -15,10 +15,17 @@ AJugador::AJugador()
 	myLight = CreateDefaultSubobject<USpotLightComponent>(TEXT("SpotLight"));
 	myCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 
+	GetMesh()->SetRelativeLocation(FVector(0.f, 0.f, 0.f));
+
+	myLight->SetupAttachment(GetMesh());
+	myCamera->SetupAttachment(GetMesh());
+
 	//Ajuste de posicion y rotacion
 	myLight->SetRelativeLocation(FVector(20.0f, 0.0f, 30.0f));
 	myCamera->SetRelativeLocation(FVector(0.0f, 0.0f, 30.0f));
-	myCamera->SetRelativeRotation(FRotator(-20.0f, 0.0f, 0.0f));
+	myCamera->SetRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
+
+	
 
 
 }
@@ -52,7 +59,7 @@ void AJugador::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AJugador::moveHorizontal(float a){
 	if (Controller && a)
-		AddMovementInput(GetActorForwardVector(), a);
+		AddMovementInput(GetActorRightVector(), a);
 	
 }
 

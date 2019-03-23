@@ -12,9 +12,7 @@ class X01_API AJugador : public ACharacter
 	GENERATED_BODY()
 
 	//Componentes
-	UPROPERTY(EditAnywhere)
 	class USpotLightComponent * myLight;
-	UPROPERTY(EditAnywhere)
 	class UCameraComponent * myCamera;
 
 	void moveHorizontal(float a);
