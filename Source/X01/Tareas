@@ -1,5 +1,28 @@
-Continuar con interruptor
+Continuar con OnOverlapBegin (L.80 TopLightGroup.h)
 
 L.25 Interruptor.h
     Si yo coloco USpotLightComponent no me deja colocar el objeto del mapa en el panel Details, no es como en unity, 
     hay que investigar que se debe colocar, la idea es que pueda arrastrar el objeto de luz de punto de World Outliner a Details panel.
+
+
+    Recuerdas que en unity hacias composicion de objetos?, la luz en realidad era parte de un grupo que contenia al interruptor, la base, la luz
+    el soporte de la luz, etc.. todo en un prefab, la clase que manipulaba todo ese prefab tenia una referencia a la luz, en unreal es identico.
+
+    Ahora bien, para este caso del interruptor y la luz, la composicion de objetos trabaja bien, pero si deseas manipular un objeto que no
+    pertenezca al grupo, ese objeto se puede (hay que probar) referenciar con punteros:
+
+    [nombreDelPunteroAlActor]->[nombreDelComponent]->[PropiedadOmetodo()]
+
+    Ej:
+
+    AActor * targetSpotLight;
+    targetSpotLight->GetSpotLightComponent->SetIntensity(2500.f);
+
+*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *  *   *   
+
+L.80 TopLightGroup.h
+    Hay una funcion llamada void OnOverlapBegin(AActor * OverlappedActor, AActor * OtherActor);
+    Esta funcion es similar a OnTriggerEnter de Unity, la diferencia es que el parametro en Unity es un Collider, es un componente,
+    ahi era facil determinar y acceder al otro objeto y a sus propiedades, pero en Unreal el otro objeto es un AActor, lo cual me hace
+    mas complejo acceder a los componentes de AJugador (que es la clase que tengo que comprobar, es el jugador)
+

@@ -75,3 +75,5 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+.vscode/ipch/31a0c73b88db635e/JUGADOR.ipch
+*.ipch

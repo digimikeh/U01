@@ -1,0 +1,10 @@
+{
+	"files.exclude": {
+		"C:/Users/Miguel/Desktop/GIT_Unreal/U01/.git": true,
+		"C:/Users/Miguel/Desktop/GIT_Unreal/U01/.vscode": true,
+		"C:/Users/Miguel/Desktop/GIT_Unreal/U01/Content": true,
+		"C:/Users/Miguel/Desktop/GIT_Unreal/U01/Intermediate": true,
+		"C:/Users/Miguel/Desktop/GIT_Unreal/U01/Saved": true
+	},
+	"C_Cpp.intelliSenseEngineFallback": "Disabled"
+}

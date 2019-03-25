@@ -1,0 +1,128 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "X01 (Debug)",
+			"request": "launch",
+			"preLaunchTask": "X01 Win64 Debug Build",
+			"program": "C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\Binaries\\Win64\\X01-Win64-Debug.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01 (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "X01 Win64 DebugGame Build",
+			"program": "C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\Binaries\\Win64\\X01-Win64-DebugGame.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01 (Development)",
+			"request": "launch",
+			"preLaunchTask": "X01 Win64 Development Build",
+			"program": "C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\Binaries\\Win64\\X01.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01 (Shipping)",
+			"request": "launch",
+			"preLaunchTask": "X01 Win64 Shipping Build",
+			"program": "C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\Binaries\\Win64\\X01-Win64-Shipping.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01 (Test)",
+			"request": "launch",
+			"preLaunchTask": "X01 Win64 Test Build",
+			"program": "C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\Binaries\\Win64\\X01-Win64-Test.exe",
+			"args": [
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01Editor (Debug)",
+			"request": "launch",
+			"preLaunchTask": "X01Editor Win64 Debug Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor-Win64-Debug.exe",
+			"args": [
+				"C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\X01.uproject"
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01Editor (DebugGame)",
+			"request": "launch",
+			"preLaunchTask": "X01Editor Win64 DebugGame Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\X01.uproject"
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "X01Editor (Development)",
+			"request": "launch",
+			"preLaunchTask": "X01Editor Win64 Development Build",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Binaries\\Win64\\UE4Editor.exe",
+			"args": [
+				"C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\X01.uproject"
+			],
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21",
+			"stopAtEntry": false,
+			"externalConsole": true,
+			"type": "cppvsdbg",
+			"visualizerFile": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Extras\\VisualStudioDebugging\\UE4.natvis"
+		},
+		{
+			"name": "Generate Project Files",
+			"type": "clr",
+			"request": "launch",
+			"program": "C:\\Program Files\\Epic Games\\UE_4.21\\Engine\\Binaries\\DotNET\\UnrealBuildTool.exe",
+			"console": "externalTerminal",
+			"args": [
+				"-projectfiles",
+				"-vscode",
+				"-project=\"C:\\Users\\Miguel\\Desktop\\GIT_Unreal\\U01\\X01.uproject\"",
+				"-game",
+				"-engine"
+			],
+			"internalConsoleOptions": "openOnSessionStart",
+			"cwd": "C:\\Program Files\\Epic Games\\UE_4.21"
+		}
+	]
+}

@@ -3,6 +3,8 @@
 #include "Jugador.h"
 #include "Components/SpotLightComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Components/AudioComponent.h"
+
 
 // Sets default values
 AJugador::AJugador()
@@ -11,20 +13,24 @@ AJugador::AJugador()
 	PrimaryActorTick.bCanEverTick = true;
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
+	this->SetActorLabel("Jugador");
+
 	//Creacion e inicializacion de componentes
 	myLight = CreateDefaultSubobject<USpotLightComponent>(TEXT("SpotLight"));
 	myCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
+	myAudioCH = CreateDefaultSubobject<UAudioComponent>(TEXT("AudioCH"));
 
 	GetMesh()->SetRelativeLocation(FVector(0.f, 0.f, 0.f));
 
 	myLight->SetupAttachment(GetMesh());
 	myCamera->SetupAttachment(GetMesh());
+	myAudioCH->SetupAttachment(myLight);
 
 	//Ajuste de posicion y rotacion
 	myLight->SetRelativeLocation(FVector(20.0f, 0.0f, 30.0f));
 	myCamera->SetRelativeLocation(FVector(0.0f, 0.0f, 30.0f));
 	myCamera->SetRelativeRotation(FRotator(0.0f, 0.0f, 0.0f));
-
+	myAudioCH->SetRelativeLocation(FVector(0.0f, 0.0f, 0.0f));
 	
 
 
@@ -34,6 +40,12 @@ AJugador::AJugador()
 void AJugador::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (iniciaLinternaEncendida){
+		myLight->SetVisibility(true);
+	} else {
+		myLight->SetVisibility(false);
+	}
 	
 }
 
@@ -53,13 +65,15 @@ void AJugador::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	PlayerInputComponent->BindAxis("Vertical", this, &AJugador::moveVertical);
 
 	PlayerInputComponent->BindAction("ToggleLight", IE_Pressed, this, &AJugador::toggleLight);
-	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AJugador::SetAction);
+	PlayerInputComponent->BindAction("Action", IE_Pressed, this, &AJugador::setActionON);
+	PlayerInputComponent->BindAction("Action", IE_Released, this, &AJugador::setActionOFF);
 
 }
 
 void AJugador::moveHorizontal(float a){
 	if (Controller && a)
 		AddMovementInput(GetActorRightVector(), a);
+
 	
 }
 
@@ -69,16 +83,25 @@ void AJugador::moveVertical(float a){
 }
 
 void AJugador::toggleLight(){
-	myLight->SetVisibility(!isLightOn());		//Al ser Toggle (intercambio), ajusta la visibilidad al contrario de como se halla actualmente
-												//por eso el signo !
+
+	myAudioCH->SetSound(myClips[0]);
+	myAudioCH->Play();
+
+	if (LinternaCargada){
+		myLight->SetVisibility(!isLightOn());		//Al ser Toggle (intercambio), ajusta la visibilidad al contrario de como se halla actualmente
+	}												//por eso el signo !
 }
 
 bool AJugador::isLightOn() const{
 	return myLight->IsVisible();
 }
 
-void AJugador::SetAction(){
-	//Aqui van las acciones que debe hacer el jugador cuando interactua con un objeto
+void AJugador::setActionON(){
+	ActionKeyPressed = true;
+}
+
+void AJugador::setActionOFF(){
+	ActionKeyPressed = false;
 }
 
 
