@@ -30,11 +30,6 @@ ATopLightGroup::ATopLightGroup()
 	interruptorLoc_ON = FVector(0.f, 0.f, 0.f);
 	interruptorLoc_OFF = FVector(0.f, 0.f, -30.f);
 
-	//Overlapping
-	OnActorBeginOverlap.AddDynamic(this, &ATopLightGroup::OnOverlapBegin);
-	OnActorEndOverlap.AddDynamic(this, &ATopLightGroup::OnOverlapEnd);
-
-
 }
 
 
@@ -75,35 +70,6 @@ void ATopLightGroup::ToggleLight(){
 		interruptor->SetRelativeLocation(interruptorLoc_ON);
 
 }
-
-//Overlapping
-void ATopLightGroup::OnOverlapBegin(AActor * OverlappedActor, AActor * OtherActor){
-
-	AJugador * jugador = Cast<AJugador>(OtherActor);
-
-	if (jugador && (jugador->GetActorLabel() == "Jugador")){
-
-			GEngine->AddOnScreenDebugMessage(1, 5.0f, FColor::Black, "Dentro del trigger de luz");
-
-			if (jugador->ActionKeyPressed){
-
-				//Accionar el interruptor
-				ToggleLight();
-
-			}
-	}
-
-
-	delete jugador;
-	
-
-}
-
-void ATopLightGroup::OnOverlapEnd(AActor * OverlapedActor, AActor * OtherActor){
-
-
-}
-
 
 //Metodos privados
 bool ATopLightGroup::isLightON() const {

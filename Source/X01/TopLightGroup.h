@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Engine/TriggerVolume.h"
 #include "TopLightGroup.generated.h"
 
 UCLASS()
@@ -54,13 +53,5 @@ public:
 
 	//Activa el interruptor ON / OFF
 	void ToggleLight();
-
-	UFUNCTION()
-	void OnOverlapBegin(AActor * OverlappedActor, AActor * OtherActor);
-	
-	UFUNCTION()
-	void OnOverlapEnd(AActor * OverlappedActor, AActor * OtherActor);
-
-
 
 };
