@@ -16,11 +16,18 @@ class X01_API ATBTopLightGroup : public ATriggerBox
 {
 	GENERATED_BODY()
 
+	UPROPERTY(EditAnywhere)
+	class ATopLightGroup * topLightGroup = nullptr;
+
+
 public:
 
 	ATBTopLightGroup();
 
+	UFUNCTION()
 	void OnBeginOverlap(class AActor * OverlappedActor, class AActor * OtherActor);
+	
+	UFUNCTION()
 	void OnEndOverlap(class AActor * OverlappedActor, class AActor * OtherActor);
 
 
